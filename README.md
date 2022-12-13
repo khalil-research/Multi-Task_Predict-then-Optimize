@@ -1,4 +1,4 @@
-# Multi-Task_Predict-then-Optimize
+# Multi-Task Predict-then-Optimize
 <p align="center"><img width="100%" src="img/framework.png" /></p>
 
 ### Introduction
