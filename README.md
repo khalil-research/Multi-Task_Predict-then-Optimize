@@ -107,6 +107,8 @@ python pipeline_wsp.py --data 100 --algo spo
 
 ### Results
 
+The following figures can be ploted using [Jupyter Notebooks](https://github.com/khalil-research/Multi-Task_Predict-then-Optimize/tree/main/notebooks).
+
 #### Performance Advantage
 
 Multi-task predict-then-optimize has a performance advantage over single-task, especially with GradNorm.
