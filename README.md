@@ -1,0 +1,87 @@
+# Multi-Task_Predict-then-Optimize
+<p align="center"><img width="100%" src="img/framework.png" /></p>
+
+### Introduction
+The predict-then-optimize framework arises in a wide variety of applications where the unknown cost coefficients of an optimization problem are first predicted based on contextual features and then used to solve the problem. In this work, we extend the predict-then-optimize framework to a multi-task setting: contextual features must be used to predict cost coefficients of multiple optimization problems, possibly with different feasible regions, simultaneously. For instance, in a vehicle dispatch/routing application, features such as time-of-day, traffic, and weather must be used to predict travel times on the edges of a road network for multiple traveling salesperson problems that span different target locations and multiple s-t shortest path problems with different source-target pairs. We propose a set of methods for this setting, with the most sophisticated one drawing on advances in multi-task deep learning that enable information sharing between tasks for improved learning, particularly in the small-data regime. Our experiments demonstrate that multi-task predict-then-optimize methods provide good tradeoffs in performance among different tasks, particularly with less training data and more tasks. 
+
+### Dependencies
+
+* [Python](https://www.python.org/)
+* [NumPy](https://numpy.org/)
+* [SciPy](https://scipy.org/)
+* [Pathos](https://pathos.readthedocs.io/)
+* [tqdm](https://tqdm.github.io/)
+* [Pyomo](http://www.pyomo.org/)
+* [Gurobi](https://www.gurobi.com/)
+* [Scikit Learn](https://scikit-learn.org/)
+* [PyTorch](http://pytorch.org/)
+* [PyEPO](https://khalil-research.github.io/PyEPO)
+
+### Datasets
+
+* **Graph Routing:** Traveling salesperson problem dataset generated from PyEPO. ([Docs](https://khalil-research.github.io/PyEPO/build/html/content/examples/data.html))
+* **Warcraft Terrain Images:** The Warcraft map shortest path dataset, which we modify the cost coefficients for different species. ([Download](https://drive.google.com/file/d/1lYPT7dEHtH0LaIFjigLOOkxUq4yi94fy))
+
+<p align="center"><img width="50%" src="img/warcraft.png" /></p>
+
+### Multi-Task Training Strategies
+
+| **Strategy** | **Description**                                                                |
+|---------------|--------------------------------------------------------------------------------|
+| mse           | Two-stage method, training to minimize costs mean squared error                |
+| separated     | Separated single-task learning for each task                                   |
+| separated+mse | Separated single-task learning for each task with the costs mean squared error |
+| comb          | A uniform combination of decision losses                                       |
+| comb+mse      | A uniform combination of decision losses and the costs mean squared error      |
+| gradnorm      | GradNorm for decision losses                                                   |
+| gradnorm+mse  | GradNorm for decision losses and the costs mean squared error                  |
+
+### Sample Code for Experiments
+
+#### Graph Routing
+
+```bash
+python pipeline.py --data 100 --n_sp 3 --n_tsp 1 --algo spo
+```
+
+##### Experiment Parameters:
+
+###### Data Configuration
+- **node:** Number of nodes in graph.
+- **data:** Training data size.
+- **feat:** Input feature size.
+- **noise:** Noise half-width.
+
+###### Task Configuration
+- **n_sp:** Number of the shortest path tasks.
+- **n_tsp:** Number of the traveling salesperson tasks.
+
+###### Training Configuration
+- **algo:** Training algorithm: spo for SPO+ and pfyl for PFYL.
+- **iter:** Max training iterations.
+- **batch:** Batch size.
+- **lr:** Learning rate.
+- **lr2:** Learning rate of loss weights (only for GradNorm).
+- **alpha:** Hyperparameter of restoring force (only for GradNorm).
+- **proc:** number of processor for optimization.
+
+#### Warcraft Terrain Images
+
+```bash
+python pipeline_wsp.py --data 100 --algo spo
+```
+
+##### Experiment Parameters:
+
+###### Data Configuration
+- **k:** Size of grid network.
+- **data:** Training data size.
+
+###### Training Configuration
+- **algo:** Training algorithm: spo for SPO+ and pfyl for PFYL.
+- **iter:** Max training iterations.
+- **batch:** Batch size.
+- **lr:** Learning rate.
+- **lr2:** Learning rate of loss weights (only for GradNorm).
+- **alpha:** Hyperparameter of restoring force (only for GradNorm).
+- **proc:** number of processor for optimization.
