@@ -43,7 +43,7 @@ arXiv e-Print: [here](https://arxiv.org/abs/2212.05403)
 
 ### Multi-Task Training Strategies
 
-| **Strategy** | **Description**                                                                |
+| **Strategy**  | **Description**                                                                |
 |---------------|--------------------------------------------------------------------------------|
 | mse           | Two-stage method, training to minimize costs mean squared error                |
 | separated     | Separated single-task learning for each task                                   |
