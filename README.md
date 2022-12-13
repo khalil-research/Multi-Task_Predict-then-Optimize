@@ -39,7 +39,7 @@ arXiv e-Print: [here](https://arxiv.org/abs/2212.05403)
 * **Graph Routing:** Traveling salesperson problem dataset generated from PyEPO. ([Docs](https://khalil-research.github.io/PyEPO/build/html/content/examples/data.html))
 * **Warcraft Terrain Images:** The Warcraft map shortest path dataset, which we modify the cost coefficients for different species. ([Download](https://drive.google.com/file/d/1lYPT7dEHtH0LaIFjigLOOkxUq4yi94fy))
 
-<p align="center"><img width="50%" src="img/warcraft.png" /></p>
+<p align="center"><img width="70%" src="img/warcraft.png" /></p>
 
 ### Multi-Task Training Strategies
 
@@ -130,8 +130,8 @@ Multi-task predict-then-optimize has a performance advantage over single-task, e
 The use of GradNorm to adjust the weights dynamically allows for efficient model training as faster convergence is achieved.
 
 <p align="center">
-  <img src="res/spo_time.png" width="40%" />
-  <img src="res/pfyl_time.png" width="40%" />
+  <img src="res/spo_time.png" width="45%" />
+  <img src="res/pfyl_time.png" width="45%" />
 </p>
 
 #### Learning under Data Scarcit
