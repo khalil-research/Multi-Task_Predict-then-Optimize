@@ -4,6 +4,23 @@
 ### Introduction
 The predict-then-optimize framework arises in a wide variety of applications where the unknown cost coefficients of an optimization problem are first predicted based on contextual features and then used to solve the problem. In this work, we extend the predict-then-optimize framework to a multi-task setting: contextual features must be used to predict cost coefficients of multiple optimization problems simultaneously. We propose a set of methods for this setting that enable information sharing between tasks for improved learning, particularly in the small-data regime. Our experiments demonstrate that multi-task predict-then-optimize methods provide good tradeoffs in performance among different tasks, particularly with less training data and more tasks. 
 
+### Publication
+
+Bo Tang, and Elias B. Khalil. "Multi-task predict-then-optimize." arXiv preprint arXiv:2212.05403 (2022).
+
+arXiv e-Print: [here](https://arxiv.org/abs/2212.05403)
+
+#### Citation:
+
+```
+@article{tang2022multi,
+  title={Multi-task predict-then-optimize},
+  author={Tang, Bo and Khalil, Elias B},
+  journal={arXiv preprint arXiv:2212.05403},
+  year={2022}
+}
+```
+
 ### Dependencies
 
 * [Python](https://www.python.org/)
