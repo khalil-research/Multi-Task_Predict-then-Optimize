@@ -116,15 +116,15 @@ Multi-task predict-then-optimize has a performance advantage over single-task, e
 ##### Learning from Costs for Graph Routing
 
 <p align="center">
-  <img src="/res/3sp1tsp/spo/n100p10deg4/radar2.png" width="40%" />
-  <img src="/res/9sp3tsp/spo/n100p10deg4/radar2.png" width="40%" />
+  <img src="/res/3sp1tsp/spo/n100p10deg4/radar_spo31d100.png" width="40%" />
+  <img src="/res/9sp3tsp/spo/n100p10deg4/radar_spo93d100.png" width="40%" />
 </p>
 
 ##### Learning from Solutions for Graph Routing
 
 <p align="center">
-  <img src="/res/3sp1tsp/pfyl/n100p10deg4/radar2.png" width="40%" />
-  <img src="/res/9sp3tsp/pfyl/n100p10deg4/radar2.png" width="40%" />
+  <img src="/res/3sp1tsp/pfyl/n100p10deg4/radar_pfyl31d100.png" width="40%" />
+  <img src="/res/9sp3tsp/pfyl/n100p10deg4/radar_pfyl93d100.png" width="40%" />
 </p>
 
 #### Efficiency Benefit
